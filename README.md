@@ -1,3 +1,11 @@
+# zifzeit
+
+### tech stack
+- react
+- typescript
+- vite 
+- 
+
 ### (maybe ill use) potential resource list
 
 
