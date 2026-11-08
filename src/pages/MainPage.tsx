@@ -21,7 +21,7 @@ function MainPage() {
 
                 <div className={"top-right-div row-div"}>
                     <p className={"email-text"}>got suggestions? ideas? complaints? love letters? send here --{">"} </p>
-                    <a href="mailto:appfeedback.encrypt256@passinbox.com?subject=Zifzeit%20Feedback">
+                    <a href="mailto:appfeedback.encrypt256@passinbox.com?subject=Zahlzeit%20Feedback">
                         <button className={"mail-btn darkening-behaviour"}>[EMAIL]</button>
                     </a>
                 </div>
@@ -31,7 +31,7 @@ function MainPage() {
                 <div className={"col-div"}>
                     {/* small welcome text*/}
 
-                    <p className={"intro-line"}>Trainierst deine Ziffern und Uhrzeit mit..</p>
+                    <p className={"intro-line"}>Trainierst deine Zahlen und Uhrzeit mit..</p>
 
                     {/* big centered ZIFZEIT*/}
                     <div className={"centered-text-div"}>
@@ -48,7 +48,7 @@ function MainPage() {
 
                             <div className="col-div centered-text-div">
                                 <h1>####</h1>
-                                <p>Ziffern</p>
+                                <p>Zahlen</p>
                             </div>
                         </div>
 

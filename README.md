@@ -20,3 +20,6 @@ fonts:
 
 icons:
 - https://www.flaticon.com/
+
+### things for me to look at
+- cloudflare pages / tunnel for hosting dynamic w api

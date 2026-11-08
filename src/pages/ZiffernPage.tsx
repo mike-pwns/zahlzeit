@@ -30,14 +30,15 @@ function ZiffernPage() {
     // CONVERSION
     const[conversionType, setConversionType] = useState<ConversionType | null>(null);
 
-
+    // NUM DIGITS
+    const [numExercises, setNumExercises] = useState<number | null>(null);
 
 
     // for settings, use indexes
-    // const canStart =
-    //     (exerciseType === ExerciseType.LISTENING && numDigits !== null && numExercises !== null)
-    //     ||
-    //     (exerciseTypee === ExerciseType.TEXT && numDigits !== null && conversionType !== null && numExercises !== null);
+    const canStart =
+        (exerciseType === ExerciseType.LISTENING && numDigits !== null && numExercises !== null)
+        ||
+        (exerciseType === ExerciseType.TEXT && numDigits !== null && conversionType !== null && numExercises !== null);
 
 
     // navigation
@@ -57,11 +58,11 @@ function ZiffernPage() {
                         <span className="return-desktop">return</span>
                         <span className="return-mobile">&lt;</span>
                     </button>
-                    <p className="ziffern-tag-top-left">// Die Ziffern</p>
+                    <p className="ziffern-tag-top-left">// Die Zahlen</p>
                 </div>
 
                 <div className="ziffern-tag-top-middle top-center-div">
-                    <p>Ziffern</p>
+                    <p>Zahlen</p>
                 </div>
 
                 {/* obj that goes away after init. after this goes away, the session is drawn onto the screen */}
@@ -102,21 +103,21 @@ function ZiffernPage() {
                             <div className="conversion-options">
 
                                 <button
-                                    className={`option-button ${conversionType === ConversionType.NUMBER_TO_WORD ? "active" : ""}`}
+                                    className={`option-button ${conversionType === ConversionType.NUMBER_TO_WORD ? "active" : "floating-behaviour darkening-behaviour"}`}
                                     onClick={() => setConversionType(ConversionType.NUMBER_TO_WORD)}
                                 >
                                     ZAHL -&gt; WORT
                                 </button>
 
                                 <button
-                                    className={`option-button ${conversionType === ConversionType.WORD_TO_NUMBER ? "active" : ""}`}
+                                    className={`option-button ${conversionType === ConversionType.WORD_TO_NUMBER ? "active" : "floating-behaviour darkening-behaviour"}`}
                                     onClick={() => setConversionType(ConversionType.WORD_TO_NUMBER)}
                                 >
                                     WORT -&gt; ZAHL
                                 </button>
 
                                 <button
-                                    className={`option-button ${conversionType === ConversionType.MIXED ? "active" : ""}`}
+                                    className={`option-button ${conversionType === ConversionType.MIXED ? "active" : "floating-behaviour darkening-behaviour"}`}
                                     onClick={() => setConversionType(ConversionType.MIXED)}
                                 >
                                     GEMISCHT
@@ -129,7 +130,22 @@ function ZiffernPage() {
 
                         <h1 className="header">number of exercises</h1>
 
-                        {/*<button className={ canStart ? "start-button floating-behaviour darkening-behaviour" : "start-button disabled"}>TRAINIEREN!</button>*/}
+                        <div className="exercise-options">
+                            {[10, 20, -1].map(number => (
+                                <button
+                                    key={number}
+                                    className={`option-button ${
+                                        numExercises === number
+                                            ? "active"
+                                            : "floating-behaviour darkening-behaviour"
+                                    }`}
+                                    onClick={() => setNumExercises(number)}
+                                >
+                                    {number === -1 ? "endlos" : number}
+                                </button>
+                            ))}                        </div>
+
+                        <button className={ canStart ? "start-button floating-behaviour darkening-behaviour" : "hidden"}>TRAINIEREN!</button>
 
                     </div>
 
