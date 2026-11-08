@@ -104,9 +104,23 @@ button {
     cursor: pointer;
     font-family: inherit; /* ie just the default one*/
     font-size: 1rem;
-    border: 0.15rem solid currentColor;
-    border-radius: 0;
     background-color: lightgray;
+    padding: 0.5rem 1rem;
+    /*font-weight: bold;*/
+    border: 0.1rem solid var(--off-grey);
+    color: var(--off-grey);
+    /*background-color: transparent;*/
+    border-radius: 0.15rem;
+}
+
+.borderless {
+    border: none;
+}
+
+a {
+    /*text-decoration: none;*/
+    padding: 0;
+    margin: 0;
 }
 
 .top-right-div {
@@ -116,6 +130,29 @@ button {
     position: fixed;
     top: 1.5rem;
     right: 1rem;
+    height: 1rem;
+    gap: 1rem;
+}
+
+.top-left-div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 1.5rem;
+    left: 1rem;
+    height: 1rem;
+    gap: 1rem;
+}
+
+.top-center-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
     height: 1rem;
     gap: 1rem;
 }
@@ -144,19 +181,15 @@ button {
 
 .main {
 
-    height: 100vh;
+    min-height: 100svh;
+
 
     .email-text {
         color: var(--off-grey);
     }
 
     .mail-btn {
-        padding: 0.5rem 1rem;
-        /*font-weight: bold;*/
-        border: 0.1rem solid var(--off-grey);
-        color: var(--off-grey);
-        /*background-color: transparent;*/
-        border-radius: 0.15rem;
+
 
     }
 
@@ -201,6 +234,22 @@ button {
     }
     .option:hover {
 
+    }
+
+}
+
+/* ZIFFERN MENU STUFF --------------------------- */
+
+.ziffern {
+
+    min-height: 100svh;
+
+    .ziffern-tag-top-middle {
+        display: none;
+    }
+
+    .return-mobile {
+        display: none;
     }
 
 }
@@ -253,4 +302,22 @@ button {
 
     }
 
+    .ziffern {
+
+        .ziffern-tag-top-left {
+            display: none;
+        }
+
+        .ziffern-tag-top-middle {
+            display: flex;
+        }
+
+        .return-desktop {
+            display: none;
+        }
+
+        .return-mobile {
+            display: inline;
+        }
+    }
 }

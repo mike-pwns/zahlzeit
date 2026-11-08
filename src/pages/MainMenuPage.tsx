@@ -1,4 +1,17 @@
+import {useNavigate} from "react-router-dom";
+
 function MainMenuPage() {
+
+    const navigate = useNavigate();
+
+    function goToZiffernPage() {
+        navigate("/ziffern");
+    }
+
+    function goToUhrzeitPage() {
+        navigate("/uhrzeit");
+    }
+
     return(
         <>
             <div className="main center-center-div">
@@ -8,7 +21,9 @@ function MainMenuPage() {
 
                 <div className={"top-right-div row-div"}>
                     <p className={"email-text"}>got suggestions? ideas? complaints? love letters? send here --{">"} </p>
-                    <button className={"mail-btn darkening-behaviour"}>[MY MAIL]</button>
+                    <a href="mailto:appfeedback.encrypt256@passinbox.com?subject=Zifzeit%20Feedback">
+                        <button className={"mail-btn darkening-behaviour"}>[MY MAIL]</button>
+                    </a>
                 </div>
 
                 {/* centered div for main info */}
@@ -28,15 +43,17 @@ function MainMenuPage() {
 
                         {/* 2 options */}
 
-                        <div className={"option center-center-div darkening-behaviour floating-behaviour"}>
+                        {/* button 1*/}
+                        <div className={"option center-center-div darkening-behaviour floating-behaviour"} onClick={goToZiffernPage}>
 
                             <div className="col-div centered-text-div">
                                 <h1>####</h1>
-                                <p>Ziffers</p>
+                                <p>Ziffern</p>
                             </div>
                         </div>
 
-                        <div className={"option center-center-div darkening-behaviour floating-behaviour"}>
+                        {/* button 2 */}
+                        <div className={"option center-center-div darkening-behaviour floating-behaviour"} onClick={goToUhrzeitPage}>
 
                             <div className="col-div centered-text-div">
                                 <h1>##:##</h1>
