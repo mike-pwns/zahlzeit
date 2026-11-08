@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
 
-function MainMenuPage() {
+function MainPage() {
 
     const navigate = useNavigate();
 
@@ -69,4 +69,4 @@ function MainMenuPage() {
     )
 }
 
-export default MainMenuPage;
+export default MainPage;
