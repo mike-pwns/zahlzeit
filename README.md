@@ -1,4 +1,4 @@
-# zifzeit
+# zahlzeit
 
 ### tech stack
 - react
