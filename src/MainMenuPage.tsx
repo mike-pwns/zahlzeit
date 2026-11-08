@@ -24,7 +24,7 @@ function MainMenuPage() {
                     </div>
 
                     {/* two buttons next to eachother */}
-                    <div className={"options_container"}>
+                    <div className={"options-container"}>
 
                         {/* 2 options */}
 
