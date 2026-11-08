@@ -1,25 +1,51 @@
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {useState} from "react";
+
 function ZiffernPage() {
 
     const navigate = useNavigate();
 
+    // flag managing and allat
     enum ExerciseType {
         LISTENING,
-        WRITING
-    }
-    let exercises_type = null;
-
-    function setExerciseType(type) {
-        console.log("changes exerciseType", type);
-        exercises_type = type;
+        TEXT
     }
 
+    enum ConversionType {
+        NUMBER_TO_WORD,
+        WORD_TO_NUMBER,
+        MIXED
+    }
+
+
+
+    //  EXERCISE TYPE
+    //       var name        mutator        # this can be an enum value OR null. set null by default
+    const [exerciseType, setExerciseType] = useState<ExerciseType | null>(null);
+    // const exerciseTypeSelected = exerciseType !== null; // kind redundant, just check that condition
+
+    // NUM DIGITS
+    const [numDigits, setNumDigits] = useState<number | null>(null);
+
+    // CONVERSION
+    const[conversionType, setConversionType] = useState<ConversionType | null>(null);
+
+
+
+
+    // for settings, use indexes
+    // const canStart =
+    //     (exerciseType === ExerciseType.LISTENING && numDigits !== null && numExercises !== null)
+    //     ||
+    //     (exerciseTypee === ExerciseType.TEXT && numDigits !== null && conversionType !== null && numExercises !== null);
+
+
+    // navigation
     function goToMainPage() {
         navigate("/");
     }
 
-    console.log(exercises_type);
-
+    // actual html
     return (
         <>
             <div className="ziffern center-center-div">
@@ -42,13 +68,86 @@ function ZiffernPage() {
 
                 <div className="center-center-div config-modal">
                     <h1 className="header">AUFGABE</h1>
-                    <div className="row-div">
-                        <button className="darkening-behaviour" onClick={() => setExerciseType(ExerciseType.LISTENING)}>HOREN</button>
-                        <button onClick={() => setExerciseType(ExerciseType.WRITING)}>SCHREIBEN</button>
+                    <div className="row-div options-container">
+                        <button className={exerciseType === ExerciseType.LISTENING ? "option-button active" : "darkening-behaviour option-button floating-behaviour"}
+                                onClick={() => setExerciseType(ExerciseType.LISTENING)}>HÖREN
+                        </button>
+                        <button className={exerciseType === ExerciseType.TEXT ? "option-button active" : "darkening-behaviour option-button floating-behaviour"}
+                                onClick={() => setExerciseType(ExerciseType.TEXT)}>SCHREIBEN
+                        </button>
                     </div>
 
-                    <div className="listening-configurations"></div>
-                    <div className="text-configurations"></div>
+                    {/* configs */}
+
+
+                    <div className={exerciseType !== null ? "col-div full-width centered-text-div" : "hidden"}>
+
+                        <h1 className="header">number of digits</h1>
+
+                        <div className="digit-options">
+                            {[1, 2, 3, 4, 5, 6].map(number => (
+                                <button
+                                    key={number}
+                                    className={`option-button ${numDigits === number ? "active" : "floating-behaviour darkening-behaviour"}`}
+                                    onClick={() => setNumDigits(number)}
+                                >
+                                    {number}
+                                </button>
+                            ))}
+                        </div>
+
+                        <div className={exerciseType === ExerciseType.TEXT ? "col-div full-width" : "hidden"}>
+                            <h1 className="header">conversion type</h1>
+
+                            <div className="conversion-options">
+
+                                <button
+                                    className={`option-button ${conversionType === ConversionType.NUMBER_TO_WORD ? "active" : ""}`}
+                                    onClick={() => setConversionType(ConversionType.NUMBER_TO_WORD)}
+                                >
+                                    ZAHL -&gt; WORT
+                                </button>
+
+                                <button
+                                    className={`option-button ${conversionType === ConversionType.WORD_TO_NUMBER ? "active" : ""}`}
+                                    onClick={() => setConversionType(ConversionType.WORD_TO_NUMBER)}
+                                >
+                                    WORT -&gt; ZAHL
+                                </button>
+
+                                <button
+                                    className={`option-button ${conversionType === ConversionType.MIXED ? "active" : ""}`}
+                                    onClick={() => setConversionType(ConversionType.MIXED)}
+                                >
+                                    GEMISCHT
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <h1 className="header">number of exercises</h1>
+
+                        {/*<button className={ canStart ? "start-button floating-behaviour darkening-behaviour" : "start-button disabled"}>TRAINIEREN!</button>*/}
+
+                    </div>
+
+                    {/*<h1 className={exerciseType !== null ? "header" : "hidden"}>DIE KONFIGURATIONEN</h1>*/}
+
+                    {/*/!* configs for listening *!/*/}
+                    {/*<div className={exerciseType === ExerciseType.LISTENING ? "col-div" : "hidden"}>*/}
+                    {/*    <p>listening stuff here</p>*/}
+
+                    {/*</div>*/}
+
+                    {/*/!* configs for text *!/*/}
+
+                    {/*<h1 className={exerciseType !== null ? "header" : "hidden"}></h1>*/}
+                    {/*<div className="text-configurations">*/}
+                    {/*    <h1 className="header">TYP</h1>*/}
+
+                    {/*</div>*/}
 
 
                 </div>

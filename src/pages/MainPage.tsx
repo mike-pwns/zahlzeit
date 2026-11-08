@@ -22,7 +22,7 @@ function MainPage() {
                 <div className={"top-right-div row-div"}>
                     <p className={"email-text"}>got suggestions? ideas? complaints? love letters? send here --{">"} </p>
                     <a href="mailto:appfeedback.encrypt256@passinbox.com?subject=Zifzeit%20Feedback">
-                        <button className={"mail-btn darkening-behaviour"}>[MY MAIL]</button>
+                        <button className={"mail-btn darkening-behaviour"}>[EMAIL]</button>
                     </a>
                 </div>
 
@@ -35,7 +35,7 @@ function MainPage() {
 
                     {/* big centered ZIFZEIT*/}
                     <div className={"centered-text-div"}>
-                        <h1 className={"title"}>ZIFZEIT <span className={"dot-bruh-idk"}>.</span></h1>
+                        <h1 className={"title"}>ZAHLZEIT <span className={"dot-bruh-idk"}>.</span></h1>
                     </div>
 
                     {/* two buttons next to eachother */}
