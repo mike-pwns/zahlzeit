@@ -1,3 +1,15 @@
+/* IMPORTS n FONTS and LOADING STUFF */
+
+:root {
+    --taupe: #93827F;
+    --cream: #F0F0C9;
+    --black: #020300;
+
+    --off-white: #F5F5F5;
+    --soft-white: #FBFAF5;
+    --off-grey: #222222;
+}
+
 @font-face {
     font-family: 'wwDigital';
     src: url('/fonts/wwDigital.ttf') format('truetype');
@@ -5,9 +17,173 @@
 
 @font-face {
     font-family: 'unispace';
-    src: url('/fonts/unispace_reg.otf') format('opentype');
+    src: url('/fonts/Unispace Rg.otf');
+    font-weight: 400;
+    font-style: normal;
 }
+
+@font-face {
+    font-family: 'unispace';
+    src: url('/fonts/Unispace Bd.otf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'unispace';
+    src: url('/fonts/Unispace It.otf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'unispace';
+    src: url('/fonts/Unispace Bd It.otf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* DESKTOP, TABLET WIDTH ETC ETC */
+
+/* misc stuff */
 
 body {
     font-family: 'unispace', sans-serif;
+    letter-spacing: 0.03rem;
+    background-color: var(--soft-white);
+}
+
+button img {
+    width: 100%;
+    height: 100%;
+}
+
+.darkening-behaviour {
+    transition: 0.1s;
+}
+.darkening-behaviour:hover {
+    filter: brightness(0.9);
+}
+.darkening-behaviour:active {
+    filter: brightness(0.8);
+}
+
+.centered-text-div {
+    text-align: center;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    padding: 0;
+    margin: 0;
+}
+
+.top-right-div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    top: 1.5rem;
+    right: 1rem;
+    height: 1rem;
+    gap: 1rem;
+}
+
+
+.center-center-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row-div {
+    display: flex;
+    flex-direction: row;
+}
+
+.col-div {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit; /* ie just the default one*/
+    font-size: 1rem;
+    border: 0.15rem solid currentColor;
+    border-radius: 0;
+    background-color: lightgray;
+}
+
+/* MAIN MENU STUFF --------------------------- */
+
+
+.main {
+
+    height: 100vh;
+
+    .mail-btn {
+        padding: 0.5rem 1rem;
+        /*font-weight: bold;*/
+    }
+
+    .intro-line {
+        align-self: start;
+        font-size: 1.3rem;
+    }
+
+    .title {
+        font-size: 10rem;
+    }
+
+    .options_container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        width: 100%;
+        height: 10rem;
+    }
+
+    .option {
+        background-color: lightgray;
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+        border-radius: 0.3rem;
+
+        h1 {
+            font-size: 2.75rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+    }
+    .option:hover {
+
+    }
+
+}
+
+
+/* for phones - NOT MAX-DEVICE-WIDTH!!!!!!!!!
+ this is like how much browser space w dpi does it use. device width is like a bit more complicated*/
+
+
+@media (max-width: 768px) {
+
+
+    /* MAIN MENU */
 }
