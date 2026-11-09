@@ -160,6 +160,17 @@ a {
     gap: 1rem;
 }
 
+.top-center-div {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: fixed;
+    top: 1.5rem;
+    right: 1rem;
+    transform: translateX(-50%);
+    height: 1rem;
+    gap: 1rem;
+}
 
 .center-center-div {
     display: flex;
@@ -347,6 +358,32 @@ a {
 
     }
 
+    .bottom-copy-pastables {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 0.15rem;
+        border: 0.1rem solid var(--off-grey);
+        border-bottom: none;
+
+        .copy-pastable {
+            font-size: 1.5rem;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-left: 0.1rem solid var(--off-grey);
+        }
+
+        .copy-pastable:first-child {
+            border-left: none;
+        }
+    }
+
+
+
 }
 
 
@@ -461,5 +498,6 @@ a {
 
 
         }
+
     }
 }

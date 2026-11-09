@@ -5,6 +5,14 @@ function ZiffernPage() {
 
     const navigate = useNavigate();
 
+    const [currentPage, setCurrentPage] = useState<Pages>(Pages.CONFIG)
+
+    enum Pages {
+        CONFIG,
+        SESSION,
+        RESULTS
+    }
+
     // flag managing and allat
     enum ExerciseType {
         LISTENING,
@@ -16,8 +24,6 @@ function ZiffernPage() {
         WORD_TO_NUMBER,
         MIXED
     }
-
-
 
     //  EXERCISE TYPE
     //       var name        mutator        # this can be an enum value OR null. set null by default
@@ -46,132 +52,177 @@ function ZiffernPage() {
         navigate("/");
     }
 
+    function startSession() {
+        // read vals, compile questions n whatnot
+        console.log("Starting session...");
+        setCurrentPage(Pages.SESSION)
+    }
+
     // actual html
-    return (
-        <>
-            <div className="ziffern center-center-div">
+
+    switch (currentPage) {
+
+        case Pages.CONFIG:
+
+            return (
+                <>
+                    <div className="ziffern center-center-div">
 
 
-                {/* top section */}
-                <div className="top-left-div">
-                    <button className="borderless darkening-behaviour" onClick={goToMainPage}>
-                        <span className="return-desktop">return</span>
-                        <span className="return-mobile">&lt;</span>
-                    </button>
-                    <p className="ziffern-tag-top-left">// Die Zahlen</p>
-                </div>
-
-                <div className="ziffern-tag-top-middle top-center-div">
-                    <p>Zahlen</p>
-                </div>
-
-                {/* obj that goes away after init. after this goes away, the session is drawn onto the screen */}
-
-                <div className="center-center-div config-modal">
-                    <h1 className="header">AUFGABE</h1>
-                    <div className="row-div options-container">
-                        <button className={exerciseType === ExerciseType.LISTENING ? "option-button active" : "darkening-behaviour option-button floating-behaviour"}
-                                onClick={() => setExerciseType(ExerciseType.LISTENING)}>HÖREN
-                        </button>
-                        <button className={exerciseType === ExerciseType.TEXT ? "option-button active" : "darkening-behaviour option-button floating-behaviour"}
-                                onClick={() => setExerciseType(ExerciseType.TEXT)}>SCHREIBEN
-                        </button>
-                    </div>
-
-                    {/* configs */}
-
-
-                    <div className={exerciseType !== null ? "col-div full-width centered-text-div" : "hidden"}>
-
-                        <h1 className="header">VIELE ZIFFERN</h1>
-
-                        <div className="digit-options">
-                            {[1, 2, 3, 4, 5, 6].map(number => (
-                                <button
-                                    key={number}
-                                    className={`option-button ${numDigits === number ? "active" : "floating-behaviour darkening-behaviour"}`}
-                                    onClick={() => setNumDigits(number)}
-                                >
-                                    {number}
-                                </button>
-                            ))}
+                        {/* top section */}
+                        <div className="top-left-div">
+                            <button className="borderless darkening-behaviour" onClick={goToMainPage}>
+                                <span className="return-desktop">return</span>
+                                <span className="return-mobile">&lt;</span>
+                            </button>
+                            <p className="ziffern-tag-top-left">// Die Zahlen</p>
                         </div>
 
-                        <div className={exerciseType === ExerciseType.TEXT ? "col-div full-width" : "hidden"}>
-                            <h1 className="header">TYP</h1>
+                        <div className="ziffern-tag-top-middle top-center-div">
+                            <p>Zahlen</p>
+                        </div>
 
-                            <div className="conversion-options">
+                        {/* obj that goes away after init. after this goes away, the session is drawn onto the screen */}
+
+                        <div className="center-center-div config-modal">
+                            <h1 className="header">AUFGABE</h1>
+                            <div className="row-div options-container">
+                                <button className={exerciseType === ExerciseType.LISTENING ? "option-button active" : "darkening-behaviour option-button floating-behaviour"}
+                                        onClick={() => setExerciseType(ExerciseType.LISTENING)}>HÖREN
+                                </button>
+                                <button className={exerciseType === ExerciseType.TEXT ? "option-button active" : "darkening-behaviour option-button floating-behaviour"}
+                                        onClick={() => setExerciseType(ExerciseType.TEXT)}>SCHREIBEN
+                                </button>
+                            </div>
+
+                            {/* configs */}
+
+
+                            <div className={exerciseType !== null ? "col-div full-width centered-text-div" : "hidden"}>
+
+                                <h1 className="header" style={{marginTop: "1rem"}}>VIELE ZIFFERN</h1>
+
+                                <div className="digit-options">
+                                    {[1, 2, 3, 4, 5, 6].map(number => (
+                                        <button
+                                            key={number}
+                                            className={`option-button ${numDigits === number ? "active" : "floating-behaviour darkening-behaviour"}`}
+                                            onClick={() => setNumDigits(number)}
+                                        >
+                                            {number}
+                                        </button>
+                                    ))}
+                                </div>
+
+                                <div className={exerciseType === ExerciseType.TEXT ? "col-div full-width" : "hidden"}>
+                                    <h1 className="header">TYP</h1>
+
+                                    <div className="conversion-options">
+
+                                        <button
+                                            className={`option-button ${conversionType === ConversionType.NUMBER_TO_WORD ? "active" : "floating-behaviour darkening-behaviour"}`}
+                                            onClick={() => setConversionType(ConversionType.NUMBER_TO_WORD)}
+                                        >
+                                            ZAHL -&gt; WORT
+                                        </button>
+
+                                        <button
+                                            className={`option-button ${conversionType === ConversionType.WORD_TO_NUMBER ? "active" : "floating-behaviour darkening-behaviour"}`}
+                                            onClick={() => setConversionType(ConversionType.WORD_TO_NUMBER)}
+                                        >
+                                            WORT -&gt; ZAHL
+                                        </button>
+
+                                        <button
+                                            className={`option-button ${conversionType === ConversionType.MIXED ? "active" : "floating-behaviour darkening-behaviour"}`}
+                                            onClick={() => setConversionType(ConversionType.MIXED)}
+                                        >
+                                            GEMISCHT
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+
+                                <h1 className="header">VIELE AUFGABE</h1>
+
+                                <div className="exercise-options">
+                                    {[10, 20, -1].map(number => (
+                                        <button
+                                            key={number}
+                                            className={`option-button ${
+                                                numExercises === number
+                                                    ? "active"
+                                                    : "floating-behaviour darkening-behaviour"
+                                            }`}
+                                            onClick={() => setNumExercises(number)}
+                                        >
+                                            {number === -1 ? "endlos" : number}
+                                        </button>
+                                    ))}                        </div>
 
                                 <button
-                                    className={`option-button ${conversionType === ConversionType.NUMBER_TO_WORD ? "active" : "floating-behaviour darkening-behaviour"}`}
-                                    onClick={() => setConversionType(ConversionType.NUMBER_TO_WORD)}
-                                >
-                                    ZAHL -&gt; WORT
-                                </button>
-
-                                <button
-                                    className={`option-button ${conversionType === ConversionType.WORD_TO_NUMBER ? "active" : "floating-behaviour darkening-behaviour"}`}
-                                    onClick={() => setConversionType(ConversionType.WORD_TO_NUMBER)}
-                                >
-                                    WORT -&gt; ZAHL
-                                </button>
-
-                                <button
-                                    className={`option-button ${conversionType === ConversionType.MIXED ? "active" : "floating-behaviour darkening-behaviour"}`}
-                                    onClick={() => setConversionType(ConversionType.MIXED)}
-                                >
-                                    GEMISCHT
-                                </button>
+                                    onClick={() => startSession()}
+                                    className={canStart ? "start-button floating-behaviour darkening-behaviour" : "hidden"}>TRAINIEREN!</button>
 
                             </div>
 
                         </div>
 
 
-                        <h1 className="header">VIELE AUFGABE</h1>
+                    </div>
+                </>
+            )
 
-                        <div className="exercise-options">
-                            {[10, 20, -1].map(number => (
+        case Pages.SESSION:
+            return (
+                <>
+                    <div className="ziffern center-center-div">
+
+
+                        {/* top section */}
+                        <div className="top-left-div">
+                            <button className="borderless darkening-behaviour" onClick={goToMainPage}>
+                                <span className="return-desktop">return</span>
+                                <span className="return-mobile">&lt;</span>
+                            </button>
+                            <p className="ziffern-tag-top-left">// Die Zahlen</p>
+                        </div>
+
+                        <div className="ziffern-tag-top-middle top-center-div">
+                            <p>Zahlen</p>
+                        </div>
+
+                        <div className="top-right-div">
+                            <p>[AUFGABE ##/##]</p>
+                            <p>[ZEIT ##:##]</p>
+                            <button className="borderless darkening-behaviour">ENDE</button>
+                        </div>
+
+                        <div className="bottom-copy-pastables">
+                            {["ä", "ö", "ü", "ß"].map(letter => (
                                 <button
-                                    key={number}
-                                    className={`option-button ${
-                                        numExercises === number
-                                            ? "active"
-                                            : "floating-behaviour darkening-behaviour"
-                                    }`}
-                                    onClick={() => setNumExercises(number)}
+                                    key={letter}
+                                    className="copy-pastable darkening-behaviour"
+                                    onClick={() => navigator.clipboard.writeText(letter)}
                                 >
-                                    {number === -1 ? "endlos" : number}
+                                    {letter}
                                 </button>
-                            ))}                        </div>
-
-                        <button className={ canStart ? "start-button floating-behaviour darkening-behaviour" : "hidden"}>TRAINIEREN!</button>
+                            ))}
+                        </div>
 
                     </div>
+                </>
+            )
 
-                    {/*<h1 className={exerciseType !== null ? "header" : "hidden"}>DIE KONFIGURATIONEN</h1>*/}
+        case Pages.RESULTS:
+            return (
+                <>
+                </>
+            )
+    }
 
-                    {/*/!* configs for listening *!/*/}
-                    {/*<div className={exerciseType === ExerciseType.LISTENING ? "col-div" : "hidden"}>*/}
-                    {/*    <p>listening stuff here</p>*/}
-
-                    {/*</div>*/}
-
-                    {/*/!* configs for text *!/*/}
-
-                    {/*<h1 className={exerciseType !== null ? "header" : "hidden"}></h1>*/}
-                    {/*<div className="text-configurations">*/}
-                    {/*    <h1 className="header">TYP</h1>*/}
-
-                    {/*</div>*/}
-
-
-                </div>
-
-
-            </div>
-        </>
-    )
 
 }
 
