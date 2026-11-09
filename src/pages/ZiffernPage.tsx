@@ -83,7 +83,7 @@ function ZiffernPage() {
 
                     <div className={exerciseType !== null ? "col-div full-width centered-text-div" : "hidden"}>
 
-                        <h1 className="header">number of digits</h1>
+                        <h1 className="header">VIELE ZIFFERN</h1>
 
                         <div className="digit-options">
                             {[1, 2, 3, 4, 5, 6].map(number => (
@@ -98,7 +98,7 @@ function ZiffernPage() {
                         </div>
 
                         <div className={exerciseType === ExerciseType.TEXT ? "col-div full-width" : "hidden"}>
-                            <h1 className="header">conversion type</h1>
+                            <h1 className="header">TYP</h1>
 
                             <div className="conversion-options">
 
@@ -128,7 +128,7 @@ function ZiffernPage() {
                         </div>
 
 
-                        <h1 className="header">number of exercises</h1>
+                        <h1 className="header">VIELE AUFGABE</h1>
 
                         <div className="exercise-options">
                             {[10, 20, -1].map(number => (
