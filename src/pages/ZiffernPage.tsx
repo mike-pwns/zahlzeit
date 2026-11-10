@@ -40,6 +40,18 @@ function ZiffernPage() {
     const [numExercises, setNumExercises] = useState<number | null>(null);
 
 
+    // the whole "as" thing is new to me too man.. more readable typecasting?
+    function pasteCharacter(character: String) {
+
+        // have to init this here because.. well, we reuse the page and everything. so band aid ig
+        const inputField = document.getElementById("exercise-input") as HTMLInputElement;
+        inputField.value += character;
+    }
+
+
+
+
+
     // for settings, use indexes
     const canStart =
         (exerciseType === ExerciseType.LISTENING && numDigits !== null && numExercises !== null)
@@ -71,7 +83,7 @@ function ZiffernPage() {
 
                         {/* top section */}
                         <div className="top-left-div">
-                            <button className="borderless darkening-behaviour" onClick={goToMainPage}>
+                            <button className="darkening-behaviour" onClick={goToMainPage}>
                                 <span className="return-desktop">return</span>
                                 <span className="return-mobile">&lt;</span>
                             </button>
@@ -183,7 +195,7 @@ function ZiffernPage() {
 
                         {/* top section */}
                         <div className="top-left-div">
-                            <button className="borderless darkening-behaviour" onClick={goToMainPage}>
+                            <button className="darkening-behaviour" onClick={goToMainPage}>
                                 <span className="return-desktop">return</span>
                                 <span className="return-mobile">&lt;</span>
                             </button>
@@ -197,7 +209,7 @@ function ZiffernPage() {
                         <div className="top-right-div">
                             <p>[AUFGABE ##/##]</p>
                             <p>[ZEIT ##:##]</p>
-                            <button className="borderless darkening-behaviour">ENDE</button>
+                            <button className="darkening-behaviour">ENDE</button>
                         </div>
 
                         <div className="bottom-copy-pastables">
@@ -205,11 +217,22 @@ function ZiffernPage() {
                                 <button
                                     key={letter}
                                     className="copy-pastable darkening-behaviour"
-                                    onClick={() => navigator.clipboard.writeText(letter)}
+                                    onClick={() => pasteCharacter(letter)}
                                 >
                                     {letter}
                                 </button>
                             ))}
+                        </div>
+
+
+                    {/*    now the actual middle section */}
+
+                        <div className="col-div centered-text-div">
+                            <h1 className="exercise-prompt">52337</h1>
+                            <div className="exercise-input-container">
+                                <input id="exercise-input" type="text" placeholder="answer here!!!!!!!"/>
+                                <button className="exercise-submit darkening-behaviour">SUBMIT</button>
+                            </div>
                         </div>
 
                     </div>
