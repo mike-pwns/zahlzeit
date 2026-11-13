@@ -1,4 +1,5 @@
 import {useNavigate} from "react-router-dom";
+// import {generateNumber, numToWord} from "../logic/generator.ts"
 
 function MainPage() {
 
@@ -12,9 +13,18 @@ function MainPage() {
     //     navigate("/uhrzeit");
     // }
 
+    //
+    // function printRandomNumber() {
+    //
+    //     const num = 160 //generateNumber(3)
+    //     console.log(num)
+    //     console.log(numToWord(num))
+    //
+    // }
     return(
         <>
             <div className="main center-center-div">
+                {/*<button onClick={printRandomNumber}>click me</button>*/}
 
 
                 {/* top right email me thing */}
