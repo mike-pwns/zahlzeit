@@ -7,10 +7,10 @@ function MainPage() {
     function goToZiffernPage() {
         navigate("/ziffern");
     }
-
-    function goToUhrzeitPage() {
-        navigate("/uhrzeit");
-    }
+    //
+    // function goToUhrzeitPage() {
+    //     navigate("/uhrzeit");
+    // }
 
     return(
         <>
@@ -53,11 +53,11 @@ function MainPage() {
                         </div>
 
                         {/* button 2 */}
-                        <div className={"option center-center-div darkening-behaviour floating-behaviour"} onClick={goToUhrzeitPage}>
+                        <div className={"disabled option center-center-div"}>
 
-                            <div className="col-div centered-text-div">
-                                <h1>##:##</h1>
-                                <p>Uhrzeit</p>
+                            <div className="col-div centered-text-div disabled">
+                                <h1><s>##:##</s></h1>
+                                <p><s>Uhrzeit (unavailable)</s></p>
                             </div>
                         </div>
 

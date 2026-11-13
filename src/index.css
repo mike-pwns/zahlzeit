@@ -50,6 +50,10 @@
 
 /* misc stuff */
 
+#root {
+    background-color: var(--soft-white);
+}
+
 body {
     font-family: 'unispace', sans-serif;
     letter-spacing: 0.03rem;
@@ -110,7 +114,7 @@ button {
     background-color: lightgray;
     padding: 0.5rem 1rem;
     /*font-weight: bold;*/
-    border: 0.1rem solid var(--off-grey);
+    border: 1px solid var(--off-grey);
     color: var(--off-grey);
     /*background-color: transparent;*/
     border-radius: 0.15rem;
@@ -127,6 +131,28 @@ a {
 }
 
 .top-right-div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    top: 1.5rem;
+    right: 1rem;
+    height: 1rem;
+    gap: 1rem;
+}
+
+.top-right-div-desktop {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    top: 1.5rem;
+    right: 1rem;
+    height: 1rem;
+    gap: 1rem;
+}
+
+.top-right-div-mobile {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -216,6 +242,9 @@ a {
 
     }
 
+    .col-div {
+        gap: 0;
+    }
     .intro-line {
         align-self: start;
         font-size: 1.3rem;
@@ -250,8 +279,14 @@ a {
         }
 
         p {
-            font-size: 1rem;
+            font-size: 1.2rem;
             letter-spacing: 0.1em;
+        }
+
+        &.disabled {
+            /*color: gray;*/
+            cursor: default;
+            opacity: 0.6;
         }
 
     }
@@ -366,14 +401,15 @@ a {
         left: 50%;
         transform: translateX(-50%);
         border-radius: 0.15rem;
-        border: 0.1rem solid var(--off-grey);
+        border: 1px solid var(--off-grey);
         border-bottom: none;
 
         .copy-pastable {
             font-size: 1.5rem;
             padding: 1rem 1.5rem;
             border: none;
-            border-left: 0.1rem solid var(--off-grey);
+            border-radius: 0;
+            border-left: 1px solid var(--off-grey);
         }
 
         .copy-pastable:first-child {
@@ -382,11 +418,11 @@ a {
     }
 
 
-
     .exercise-prompt {
-        font-size: 20rem;
+        /*font-size: 20rem;*/
         margin: 0;
         padding: 0;
+        font-size: clamp(2rem, 20vw, 20rem);
     }
 
     .exercise-input-container {
@@ -395,6 +431,7 @@ a {
         align-items: center;
         justify-content: center;
         gap: 1rem;
+        /*width: 100%;*/
     }
 
     #exercise-input {
@@ -415,6 +452,10 @@ a {
         padding: 1rem 1.5rem;
     }
 
+    .session-info-mobile {
+        display: none;
+    }
+
 }
 
 
@@ -433,7 +474,7 @@ a {
         }
 
         .intro-line {
-            font-size: 0.6rem;
+            font-size: 0.7rem;
         }
 
         .title {
@@ -447,18 +488,22 @@ a {
         .options-container {
             flex-direction: column;
             /*gap: 1rem;*/
-            height: 20rem;
+            height: 17rem;
+        }
+        .col-div {
+            gap: 0;
         }
 
         .option {
 
+            /*padding: rem 0rem;*/
+
             h1 {
                 font-size: 2.5rem;
-
             }
 
             p {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
         }
@@ -487,7 +532,9 @@ a {
 
         .config-modal {
 
-            padding: 3rem 1.5rem;
+            padding: 2rem 1.5rem;
+            scale: 0.92;
+            /*padding: 2rem;*/
 
             .header {
                 font-size: 1.2rem;
@@ -527,7 +574,56 @@ a {
             }
 
 
+        }
 
+
+        .top-right-div-desktop {
+            display: none;
+        }
+
+        .exercise-prompt {
+            /*font-size: 7rem;*/
+        /*    need this to change size or break into several lines or both if something like zweiundfunfzigdreihundertseibenunddreissig*/
+        }
+
+        .exercise-input-container {
+            gap: 1rem;
+            /*min-width: 100%;*/
+            flex-direction: column;
+            /*width: 10rem;*/
+        }
+
+        /*.col-div.centered-text-div {*/
+        /*    width: 100%;*/
+        /*    align-items: center;*/
+        /*}*/
+
+        .bottom-copy-pastables {
+            display: none;
+        }
+
+        #exercise-input {
+            min-width: 90%;
+            max-width: 90%;
+            height: 100%;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+        }
+
+        .exercise-submit {
+            height: 100%;
+            width: 100%;
+            font-size: 1.2rem;
+            padding: 1rem 1.5rem;
+        }
+
+        .session-info-mobile {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            font-size: 0.7rem;
+            color: var(--niche-light-gray);
         }
 
     }

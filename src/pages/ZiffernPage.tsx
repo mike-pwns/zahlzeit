@@ -206,11 +206,16 @@ function ZiffernPage() {
                             <p>Zahlen</p>
                         </div>
 
-                        <div className="top-right-div">
+                        <div className="top-right-div-desktop">
                             <p>[AUFGABE ##/##]</p>
                             <p>[ZEIT ##:##]</p>
                             <button className="darkening-behaviour">ENDE</button>
                         </div>
+
+                        <div className="top-right-div-mobile">
+                            <button className="darkening-behaviour">ENDE</button>
+                        </div>
+
 
                         <div className="bottom-copy-pastables">
                             {["ä", "ö", "ü", "ß"].map(letter => (
@@ -228,10 +233,15 @@ function ZiffernPage() {
                     {/*    now the actual middle section */}
 
                         <div className="col-div centered-text-div">
-                            <h1 className="exercise-prompt">52337</h1>
+                            <h1 className="exercise-prompt">100,000</h1>
                             <div className="exercise-input-container">
-                                <input id="exercise-input" type="text" placeholder="answer here!!!!!!!"/>
+                                {/*TODO have placeholder change based on whatever is being prompted*/}
+                                <input id="exercise-input" type="text" placeholder={conversionType ? "wort hier" : "zahl hier"}/>
                                 <button className="exercise-submit darkening-behaviour">SUBMIT</button>
+                                <div className="session-info-mobile">
+                                    <p>[AUFGABE ##/##]</p>
+                                    <p>[ZEIT ##:##]</p>
+                                </div>
                             </div>
                         </div>
 
