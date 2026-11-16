@@ -70,6 +70,12 @@ function ZiffernPage() {
         setCurrentPage(Pages.SESSION)
     }
 
+    function endSession() {
+        // save the latest one (or omit it)
+        console.log("Ending session...");
+        setCurrentPage(Pages.RESULTS)
+    }
+
     // actual html
 
     switch (currentPage) {
@@ -209,11 +215,11 @@ function ZiffernPage() {
                         <div className="top-right-div-desktop">
                             <p>[AUFGABE ##/##]</p>
                             <p>[ZEIT ##:##]</p>
-                            <button className="darkening-behaviour">ENDE</button>
+                            <button className="darkening-behaviour" onClick={endSession}>ENDE</button>
                         </div>
 
                         <div className="top-right-div-mobile">
-                            <button className="darkening-behaviour">ENDE</button>
+                            <button className="darkening-behaviour" onClick={endSession}>ENDE</button>
                         </div>
 
 
@@ -252,6 +258,31 @@ function ZiffernPage() {
         case Pages.RESULTS:
             return (
                 <>
+                    <div className="ziffern">
+                        <div className="results-split full">
+
+                            {/* results */}
+                            <div className="full center-center-div">
+
+                                <div className="results-board centered-text-div">
+                                    <h1 className="result-header">RESULTATEN</h1>
+                                    <hr/>
+                                    {/*i ran out of ideas kay?*/}
+                                    <div className="ends-thing">
+                                        <p className="out-of-text">[20 / 20]</p>
+                                        <p className="out-of-text">[100%]</p>
+                                    </div>
+                                    <hr/>
+                                    <div className="mistake-subsection">
+                                        <p className={"out-of-text"}>keine mistakes <br/> sehr gut :)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* cat + menu options */}
+                            <div className="full"></div>
+                        </div>
+                    </div>
                 </>
             )
     }

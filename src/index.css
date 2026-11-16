@@ -107,6 +107,12 @@ div {
     margin: 0;
 }
 
+.full {
+    width: 100vw;
+    height: 100vh;
+    /*background-color: red;*/
+}
+
 button {
     cursor: pointer;
     font-family: inherit; /* ie just the default one*/
@@ -454,6 +460,67 @@ a {
 
     .session-info-mobile {
         display: none;
+    }
+
+
+    .results-split {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .results-board {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--light-gray);
+        border: 1px solid var(--off-grey);
+        border-radius: 0.15rem;
+        padding: 1rem;
+        width: 80%;
+    }
+
+    /*
+    Source - https://stackoverflow.com/a/14821134
+    Posted by moettinger, modified by community. See post 'Timeline' for change history
+    Retrieved 2026-11-16, License - CC BY-SA 3.0
+    */
+
+    .result-header {
+        font-size: 5rem;
+        padding-top: 1rem;
+    }
+
+    /* wtf this is so fancy !!! */
+    hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid var(--off-grey);
+        margin: 1em 0;
+        padding: 0;
+    }
+
+    .out-of-text {
+        font-size: 3.2rem;
+    }
+
+    .ends-thing {
+        padding: 0rem 0rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .mistake-subsection {
+        display: flex;
+        flex-direction: column;
+        border-radius: 0.15rem;
+        scroll-behavior: smooth; /* idk if this is right*/
+        align-items: center;
+        justify-content: center;
+        /*background-color: var(--off-white);*/
+        border: 1px solid var(--off-grey);
+        min-height: 30rem;
     }
 
 }
