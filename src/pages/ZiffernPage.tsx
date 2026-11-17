@@ -34,7 +34,7 @@ function ZiffernPage() {
     const [numDigits, setNumDigits] = useState<number | null>(null);
 
     // CONVERSION
-    const[conversionType, setConversionType] = useState<ConversionType | null>(null);
+    const [conversionType, setConversionType] = useState<ConversionType | null>(null);
 
     // NUM DIGITS
     const [numExercises, setNumExercises] = useState<number | null>(null);
@@ -49,7 +49,9 @@ function ZiffernPage() {
     }
 
 
+    function getRandomCatPhoto() {
 
+    }
 
 
     // for settings, use indexes
@@ -105,11 +107,12 @@ function ZiffernPage() {
                         <div className="center-center-div config-modal">
                             <h1 className="header">AUFGABE</h1>
                             <div className="row-div options-container">
-                                <button className={exerciseType === ExerciseType.LISTENING ? "option-button active" : "darkening-behaviour option-button floating-behaviour"}
-                                        onClick={() => setExerciseType(ExerciseType.LISTENING)}>HÖREN
+                                <button className={"option-button disabled"}
+                                ><s>HÖREN (unvailable atm)</s>
                                 </button>
-                                <button className={exerciseType === ExerciseType.TEXT ? "option-button active" : "darkening-behaviour option-button floating-behaviour"}
-                                        onClick={() => setExerciseType(ExerciseType.TEXT)}>SCHREIBEN
+                                <button
+                                    className={exerciseType === ExerciseType.TEXT ? "option-button active" : "darkening-behaviour option-button floating-behaviour"}
+                                    onClick={() => setExerciseType(ExerciseType.TEXT)}>SCHREIBEN
                                 </button>
                             </div>
 
@@ -182,7 +185,8 @@ function ZiffernPage() {
 
                                 <button
                                     onClick={() => startSession()}
-                                    className={canStart ? "start-button floating-behaviour darkening-behaviour" : "hidden"}>TRAINIEREN!</button>
+                                    className={canStart ? "start-button floating-behaviour darkening-behaviour" : "hidden"}>TRAINIEREN!
+                                </button>
 
                             </div>
 
@@ -236,13 +240,14 @@ function ZiffernPage() {
                         </div>
 
 
-                    {/*    now the actual middle section */}
+                        {/*    now the actual middle section */}
 
                         <div className="col-div centered-text-div">
                             <h1 className="exercise-prompt">100,000</h1>
                             <div className="exercise-input-container">
                                 {/*TODO have placeholder change based on whatever is being prompted*/}
-                                <input id="exercise-input" type="text" placeholder={conversionType ? "wort hier" : "zahl hier"}/>
+                                <input id="exercise-input" type="text"
+                                       placeholder={conversionType ? "wort hier" : "zahl hier"}/>
                                 <button className="exercise-submit darkening-behaviour">SUBMIT</button>
                                 <div className="session-info-mobile">
                                     <p>[AUFGABE ##/##]</p>
@@ -274,13 +279,36 @@ function ZiffernPage() {
                                     </div>
                                     <hr/>
                                     <div className="mistake-subsection">
-                                        <p className={"out-of-text"}>keine mistakes <br/> sehr gut :)</p>
+                                        {/*<p className={"out-of-text"}>keine mistakes <br/> sehr gut :)</p>*/}
+                                        <div className="mistake-box">Yo im AUFGABE #1 | fix this!!</div>
+                                        <div className="mistake-box">Yo im AUFGABE #2 | perf perf</div>
+
                                     </div>
                                 </div>
                             </div>
 
                             {/* cat + menu options */}
-                            <div className="full"></div>
+                            <div className="results-right-column">
+                                <div className="bs">
+
+                                </div>
+
+                                <div className="cat-photo-container">
+                                    {/* cat photos will go here */}
+                                </div>
+
+                                <div className="menu-btn-container">
+                                    <button className="menu-btn floating-behaviour darkening-behaviour"
+                                            onClick={goToMainPage}>
+                                        MAIN MENU
+                                    </button>
+                                    {/* this is why we use bootstrap in the future >:) */}
+                                    <button className="menu-btn floating-behaviour darkening-behaviour"
+                                            onClick={getRandomCatPhoto}>
+                                        neu foto!!!
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </>
