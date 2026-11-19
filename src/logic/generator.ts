@@ -1,12 +1,14 @@
-export function generateNumber(numDigits: number): number {
+export {generateNumber, numToWord};
+
+function generateNumber(numDigits: number): number {
     const min = 10 ** (numDigits - 1);
     const max = 10 ** numDigits;
 
     return Math.floor(Math.random() * (max - min)) + min;
 }
-
 // just like.. manage exceptions n whatnot
 type DictionaryNumToString = Record<number, String>;
+
 const UNIQUE_NUM_WORD_DICT: DictionaryNumToString = {
     0: "null",
     1: "ein",
@@ -33,10 +35,11 @@ const UNIQUE_NUM_WORD_DICT: DictionaryNumToString = {
     60: "sechzig",
     70: "siebzig"
 };
-
 // actual func
 // note: only handle up to 6 digit nums, cuz thats all we were taught up till now
-export function numToWord(num: number) : String {
+
+
+function numToWord(num: number) : String {
 
     // check if its a "base case" or exception
     if (num in UNIQUE_NUM_WORD_DICT) {
@@ -82,3 +85,4 @@ export function numToWord(num: number) : String {
     return ""
 
 }
+

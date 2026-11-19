@@ -8,19 +8,7 @@ function MainPage() {
     function goToZiffernPage() {
         navigate("/ziffern");
     }
-    //
-    // function goToUhrzeitPage() {
-    //     navigate("/uhrzeit");
-    // }
 
-    //
-    // function printRandomNumber() {
-    //
-    //     const num = 160 //generateNumber(3)
-    //     console.log(num)
-    //     console.log(numToWord(num))
-    //
-    // }
     return(
         <>
             <div className="main center-center-div">

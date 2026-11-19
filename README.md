@@ -5,6 +5,11 @@
 - typescript
 - vite 
 - 
+### takeaways
+- i effin hate prolonged projects (if theyre unplanned. i have an idea, start it with not everything thought out, then it becomes unmodular fast and then bleh you get band aid solutions everywhere!)
+- using ai is hell, so just do it all by hand (and do it RIGHT!!!!!!!!!!! things turn out to be simpler than it seems.. especially when you know what you want and what you wanna do.)
+- i reckon i understand how things work a lot more with react! (this is good, but cuz this is like a playground i really just did whatever and it turned out to be bs)
+- i understand bootstrap a lil more (even though i didnt use it here)
 
 ### (maybe ill use) potential resource list
 
@@ -23,3 +28,4 @@ icons:
 
 ### things for me to look at
 - cloudflare pages / tunnel for hosting dynamic w api
+

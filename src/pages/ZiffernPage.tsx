@@ -1,5 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
+import {Question, ListeningQuestion, WritingQuestion} from "../logic/Question.ts";
 
 function ZiffernPage() {
 
