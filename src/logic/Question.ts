@@ -3,6 +3,7 @@ class Question {
     expectedAnswer: string;
     isCorrect: boolean;
 
+
     constructor(answer: string, expectedAnswer: string) {
         this.answer = answer;
         this.expectedAnswer = expectedAnswer;

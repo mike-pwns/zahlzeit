@@ -1,12 +1,16 @@
 import {useNavigate} from "react-router-dom";
-import {useState} from "react";
+// import {useState} from "react";
 import {Question, ListeningQuestion, WritingQuestion} from "../logic/Question.ts";
+import {Session} from "../logic/Session.ts";
+import {generateSession} from "../logic/Session.ts";
+import { useRef, useState, useEffect } from "react";
 
 function ZiffernPage() {
 
     const navigate = useNavigate();
 
     const [currentPage, setCurrentPage] = useState<Pages>(Pages.CONFIG)
+    const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
 
     enum Pages {
         CONFIG,
@@ -49,6 +53,39 @@ function ZiffernPage() {
         inputField.value += character;
     }
 
+    const promptRef = useRef<HTMLHeadingElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const prompt = promptRef.current;
+        const container = containerRef.current;
+
+        if (!prompt || !container) return;
+
+        const resizeText = () => {
+            // Reset to maximum font size before measuring
+            let fontSize = 20;
+
+            prompt.style.fontSize = `${fontSize}rem`;
+
+            // Shrink until the text fits
+            while (
+                prompt.scrollWidth > container.clientWidth &&
+                fontSize > 0.5
+                ) {
+                fontSize -= 0.25;
+                prompt.style.fontSize = `${fontSize}rem`;
+            }
+        };
+
+        resizeText();
+
+        const observer = new ResizeObserver(resizeText);
+        observer.observe(container);
+
+        return () => observer.disconnect();
+
+    }, [currentQuestion]);
 
     function getRandomCatPhoto() {
 
@@ -67,10 +104,39 @@ function ZiffernPage() {
         navigate("/");
     }
 
+    let session: Session;
     function startSession() {
         // read vals, compile questions n whatnot
         console.log("Starting session...");
+
+        // if -1, keep going, else,
+        console.log(numExercises)
+        console.log(numDigits)
+
+        // enum
+        console.log(exerciseType)
+        console.log(conversionType)
+
+        // session: Session;
+        // let session: Session;
+
+        if (exerciseType === ExerciseType.TEXT) {
+            session = new Session(numExercises, exerciseType, conversionType, numDigits);
+        }
+        else { // is listening
+            session = new Session(numExercises, exerciseType, null, numDigits);
+        }
+
+        console.log(session)
+
         setCurrentPage(Pages.SESSION)
+        session.generateQuestion()
+
+        console.log("makin' question")
+        console.log(session)
+
+        setCurrentQuestion(session.questions[0] as WritingQuestion);
+
     }
 
     function endSession() {
@@ -243,8 +309,12 @@ function ZiffernPage() {
 
                         {/*    now the actual middle section */}
 
-                        <div className="col-div centered-text-div">
-                            <h1 className="exercise-prompt">100,000</h1>
+                        <div className="col-div centered-text-div" ref={containerRef}>
+                            <h1 className="exercise-prompt" ref={promptRef}>
+                                {currentQuestion instanceof WritingQuestion
+                                    ? currentQuestion.textPrompt
+                                    : ""}
+                            </h1>
                             <div className="exercise-input-container">
                                 {/*TODO have placeholder change based on whatever is being prompted*/}
                                 <input id="exercise-input" type="text"

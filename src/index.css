@@ -427,10 +427,20 @@ a {
 
 
     .exercise-prompt {
-        /*font-size: 20rem;*/
-        margin: 0;
+        font-size: 20rem;
+        white-space: nowrap;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        margin: 0 auto;
         padding: 0;
-        font-size: clamp(2rem, 20vw, 20rem);
+        text-align: center;
+    }
+
+    .ziffern .col-div.centered-text-div {
+        width: 90%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .exercise-input-container {
@@ -695,10 +705,7 @@ a {
             display: none;
         }
 
-        .exercise-prompt {
-            /*font-size: 7rem;*/
-        /*    need this to change size or break into several lines or both if something like zweiundfunfzigdreihundertseibenunddreissig*/
-        }
+
 
         .exercise-input-container {
             gap: 1rem;

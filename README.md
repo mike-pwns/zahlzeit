@@ -10,6 +10,7 @@
 - using ai is hell, so just do it all by hand (and do it RIGHT!!!!!!!!!!! things turn out to be simpler than it seems.. especially when you know what you want and what you wanna do.)
 - i reckon i understand how things work a lot more with react! (this is good, but cuz this is like a playground i really just did whatever and it turned out to be bs)
 - i understand bootstrap a lil more (even though i didnt use it here)
+- working with absolute sloppily and unclean and un-pre-thought-out-code is absolute hell
 
 ### (maybe ill use) potential resource list
 

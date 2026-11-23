@@ -20,11 +20,11 @@ class Session {
     numDigitsPerQuestion: number; // yeah f me brah i dont like this either. im just making this work kay?
     questions: Question[];
 
-    constructor(numQuestions: number, questionType: ExerciseType) {
-        this.numTotalQuestions = numQuestions;
-        this.questionType = questionType;
-        this.questions = [];
-    }
+    // constructor(numQuestions: number, questionType: ExerciseType, numExercises) {
+    //     this.numTotalQuestions = numQuestions;
+    //     this.questionType = questionType;
+    //     this.questions = [];
+    // }
 
     // could just make subclasses for audiosession and textsession. would be way way more straightforward but whatevs. just gotta get through this. if i make a polished vers ill plan it all out beforehand
     constructor(numQuestions: number, questionType: ExerciseType, writingExerciseType: ConversionType, numDigitsPerQuestion: number) {
@@ -53,22 +53,22 @@ class Session {
 
                 switch (this.writingExerciseType) {
                     case ConversionType.NUMBER_TO_WORD:
-                        generatedQuestion.answer = wordVersOfNum;
+                        generatedQuestion.expectedAnswer = wordVersOfNum;
                         generatedQuestion.textPrompt = num;
                         break;
                     case ConversionType.WORD_TO_NUMBER:
                         generatedQuestion.textPrompt = wordVersOfNum;
-                        generatedQuestion.answer = num;
+                        generatedQuestion.expectedAnswer = num;
                         break;
                     case ConversionType.MIXED:
                         // random 0 or 1
                         if (Math.round(Math.random())) {
-                            generatedQuestion.answer = wordVersOfNum;
+                            generatedQuestion.expectedAnswer = wordVersOfNum;
                             generatedQuestion.textPrompt = num;
                         }
                         else {
                             generatedQuestion.textPrompt = wordVersOfNum;
-                            generatedQuestion.answer = num;
+                            generatedQuestion.expectedAnswer = num;
                         }
                         break;
                 }
@@ -83,4 +83,10 @@ class Session {
     }
 
 }
-export type {Session};
+
+function generateSession() : Session {
+    return new Session(null, null, null, null, null);
+}
+
+export {Session};
+export {generateSession}
