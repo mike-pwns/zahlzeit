@@ -1,4 +1,4 @@
-# zahlzeit (failed project... will be remade properly most likek)
+# zahlzeit (failed project... will be remade)
 
 frustration.. frustration.. frustration.. failure!
 This isn't even a "humbling project". This is just plain meta-project-programming learning.
@@ -30,7 +30,7 @@ This is probably the absolute must effin' have for something like this.
 Arguments:
 - you need to know what you're doing
 - you dont want to be the person who sits and thinks and does nothing. Know your scope, and plan until that point. Don't go beyond that (ie. know where the ambition of your project ends) 
-
+- patience brah.. surfer bro era coming to a mike near you
 
 
 yo
