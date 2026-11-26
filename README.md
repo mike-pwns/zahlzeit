@@ -46,6 +46,18 @@ It's all coming to a point in my whole "living as a programmer saga" where my ma
 
 About time commitment - jump here and there and "yipee" ("yippee?") i got this thing that.. mostly.. works.. but the underlying structure is so band-aid-held-together (new word, pitching it to oxford soon)
 
+I thought about the time crap, and like yea yea im a philosopher and (and yes i will philosophize in a sec) but like do ya get how much interesting crap there is to think about? ok like "we get it get to the point" lmao brah this is my readme YOU get off my readme if u dont wanna read it ahahhahahahaaa - like people think cs and all this programming crap is about computers and the boring crap about the "literals". nah - to me at least, its about thinking. I dont necissarily like this stuff - i wanna throw the computer at the wall like 60% of the time. but for reasons you can probably guess, i dont do that. Point is, theres more to think about when programming than variables and algorithms and syntax! Welcome to my (unique?) world (interpretation?) of cs!
+
+anyways.. my new idea for philosophy actually applies to a kajillion more things than just this repo or this hobby or this whatever- its something that i hope you reading this will actually apply to your own life yknow? Ok ok so - yknow how old people say "time is your most valueable resource"? well theyre right but like we (forgive me i dont know who you are reading this, i assume your not on your deathbed and about to die in 20 seconds.. if you are i hope you are enjoying these last few moments of life reading my readme. If you are NOT in that position, this wisdom should help you..) are at a sensible part of our lives where we DO have time.
+
+But what does time itself allow us to do?
+
+TIME = MONEY is the stupidest thing there is. This i wont get into detail rn cuz its more of a concrete thing - what im talking about is more abstract..
+
+Take this example
+
+-- (i am not done atm, gonna finish this in a bit)
+
 
 Arguments:
 - you need to know what you're doing
